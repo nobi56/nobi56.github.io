@@ -1,0 +1,22 @@
+body {
+  background-color: beige;
+  color: darkslategray;
+  margin: 0;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+header {
+  border-bottom: 1px dashed darkslategray;
+  padding: 2em;
+}
+section {
+  line-height: 2em;
+  margin: 1.5em 1em;
+}
+footer {
+  border-top: 1px dashed darkslategray;
+}
+a {
+  color: darkslategray;
+  text-decoration: underline;
+}
