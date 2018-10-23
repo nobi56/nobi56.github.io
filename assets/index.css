@@ -1,0 +1,35 @@
+body {
+  color: darkslategray;
+  background-color: beige;
+  margin: 0;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+header {
+  border-bottom: 1px dashed darkslategray;
+  padding: 1em;
+}
+article {
+  line-height: 2em;
+  padding: 0 2em;
+}
+footer {
+  border-top: 1px dashed darkslategray;
+}
+section {
+  line-height: 2em;
+  margin: 1.5em 0;
+}
+
+table {
+  margin: auto;
+}
+th,td {
+  font-weight: normal;
+  padding: 0 1em;
+}
+a {
+  color: darkslategray;
+  text-decoration: underline;
+}
