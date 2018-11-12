@@ -1,0 +1,105 @@
+body {
+  color: darkslategray;
+  background-color: beige;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+header {
+  border-bottom: 1px dashed darkslategray;
+  padding: 1em;
+  text-align: center;
+}
+article {
+  line-height: 2em;
+  padding: 0em 1em;
+}
+aside {
+  border-top: 1px dashed darkslategray;
+  line-height: 1em;
+  padding: 0em 1em;
+}
+footer {
+  border-top: 1px dashed darkslategray;
+  text-align: center;
+}
+section {
+  padding: 1em 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed darkslategray;
+  margin: 1em 2em;
+}
+
+a {
+  color: darkslategray;
+  text-decoration: underline;
+}
+ul {
+  list-style-type: none;
+}
+ul > li:before {
+  content: "-";
+  position: absolute;
+  margin-left: -1.1em; 
+}
+pre {
+  line-height: 1.5em;
+  padding: .5em 1em;
+  margin: .5em;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+blockquote {
+  border-left: 1px dashed darkslategray;
+  margin: .5em;
+  padding: 0 1em;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+td {
+  border: solid 1px black;
+  empty-cells: show;
+  height: 2em;
+  width: 4em;
+  text-align: center;
+}
+//caption { text-align: right; }
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+img#last {
+  display: block;
+  margin: auto 0 auto auto;
+}
+
+.left { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+@media screen and (min-width: 768px) {
+  article {
+    padding: .5em 4em;
+  }
+  aside {
+    padding: .5em 4em;
+  }
+  hr {
+    margin: 1em 4em;
+  }
+  pre {
+    padding: 1em 1.5em;
+    margin: 0 2em;
+  }
+  blockquote {
+    padding: 0 1.5em;
+  }
+}
