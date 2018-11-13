@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>FileReaderの練習 | nobigomu.github.io</title>
+  <meta name="description" content="JavaScriptでローカルファイルを扱うFileReaderオブジェクトを使う練習">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <meta property="og:title" content="FileReaderの練習 | nobigomu.github.io">
+  <meta property="og:description" content="JavaScriptでローカルファイルを扱うFileReaderオブジェクトを使う練習">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://nobigomu.github.io/experiment/using-FileReader.html">
+<style>
+body, textarea { color: darkslategray; background-color: beige; }
+body { text-align: center; margin: 0; overflow-wrap: break-word; }
+footer { border-top: 1px dashed darkslategray; }
+a { color: darkslategray; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<p>
+  <input type="file" id="Open">
+  <span id="Info"></span>
+  <input type="button" id="Save" value="save">
+  <span id="SaveInfo"></span>
+</p>
+
+<textarea id="Buffer">参考:
+https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+https://web-designer.cman.jp/javascript_ref/window/size/
+</textarea>
+
+<footer>
+  <p>
+    <a href="/">top</a> &gt;
+    試作 &gt;
+    FileReaderの練習
+  </p>
+  <p>&copy; 2018 nobigomu.github.io</p>
+</footer>
+
+<script>
+'use strict';
+window.addEventListener("load", () => {
+  const E = (id) => document.getElementById(id);
+  const isL = () => window.navigator.userAgent.search("iPh")<0 &&
+                    window.navigator.userAgent.search("iPo")<0 &&
+                    window.navigator.userAgent.search("And")<0;
+  const mX = isL() ? 10 : 5;
+  const mY = 25; // isL() ? 20 : 25;
+  const cols = () => Math.floor((window.innerWidth / (parseInt(window.getComputedStyle(E("Buffer")).getPropertyValue("font-size"))/2))-mX);
+  const rows = () => Math.floor((window.innerHeight / parseInt(window.getComputedStyle(E("Buffer")).getPropertyValue("font-size")))-mY);
+
+  E("Buffer").setAttribute("cols", cols());
+  E("Buffer").setAttribute("rows", rows());
+
+  window.addEventListener("resize", () => {
+    E("Buffer").setAttribute("cols", cols());
+    E("Buffer").setAttribute("rows", rows());
+  }, false);
+
+  E("Open").addEventListener("change", (e) => {
+    const R = new FileReader();
+    R.addEventListener("load", (e) => E("Buffer").value = e.target.result, false);
+    R.readAsText(e.target.files[0]);
+    E("Info").innerHTML = "(" + e.target.files[0].lastModifiedDate.toLocaleDateString() + " 更新)";
+  }, false);
+
+  E("Save").addEventListener("click", () => {
+    const B = URL.createObjectURL(new Blob([E("Buffer").value], {type:"text/plain"}));
+    const T = Date.now() + ".txt";
+    E("SaveInfo").innerHTML = "<a href=\"" + B + "\" download=\"" + T + "\" target=\"_blank\">" + T + "</a>";
+  }, false);
+}, false);
+</script>
+
+</body>
