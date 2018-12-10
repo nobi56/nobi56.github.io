@@ -1,12 +1,12 @@
 body {
-  color: darkslategray;
+  color: #002b36;
   background-color: beige;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans CJK JP", "Yu Gothic Medium", YuGothic, Meiryo, sans-serif;
   margin: 0;
   overflow-wrap: break-word;
 }
 header {
-  border-bottom: 1px dashed darkslategray;
+  border-bottom: 1px dashed #002b36;
   padding: 1em;
   text-align: center;
 }
@@ -15,12 +15,12 @@ article {
   padding: 0em 1em;
 }
 aside {
-  border-top: 1px dashed darkslategray;
+  border-top: 1px dashed #002b36;
   line-height: 1em;
   padding: 0em 1em;
 }
 footer {
-  border-top: 1px dashed darkslategray;
+  border-top: 1px dashed #002b36;
   text-align: center;
 }
 section {
@@ -29,12 +29,12 @@ section {
 
 hr {
   border: none;
-  border-top: 1px dashed darkslategray;
+  border-top: 1px dashed #002b36;
   margin: 1em 2em;
 }
 
 a {
-  color: darkslategray;
+  color: #002b36;
   text-decoration: underline;
 }
 ol, ul {
@@ -56,7 +56,7 @@ pre {
   white-space: pre-wrap;
 }
 blockquote {
-  border-left: 1px dashed darkslategray;
+  border-left: 1px dashed #002b36;
   margin: .5em;
   padding: 0 1em;
 }
@@ -66,7 +66,7 @@ table {
   margin: auto;
 }
 td {
-  border: solid 1px black;
+  border: solid 1px #002b36;
   empty-cells: show;
   height: 2em;
   width: 4em;
