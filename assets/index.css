@@ -1,5 +1,5 @@
 body {
-  color: darkslategray;
+  color: #002b36;
   background-color: beige;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans CJK JP", "Yu Gothic Medium", YuGothic, Meiryo, sans-serif;
   margin: 0;
@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  border-bottom: 1px dashed darkslategray;
+  border-bottom: 1px dashed #002b36;
   padding: 1em;
 }
 article {
@@ -16,7 +16,7 @@ article {
   padding: 0 2em;
 }
 footer {
-  border-top: 1px dashed darkslategray;
+  border-top: 1px dashed #002b36;
 }
 section {
   line-height: 2em;
@@ -31,6 +31,6 @@ th,td {
   padding: 0 1em;
 }
 a {
-  color: darkslategray;
+  color: #002b36;
   text-decoration: underline;
 }
