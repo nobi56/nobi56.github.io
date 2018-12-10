@@ -1,13 +1,13 @@
 body {
   background-color: beige;
-  color: darkslategray;
+  color: #002b36;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans CJK JP", "Yu Gothic Medium", YuGothic, Meiryo, sans-serif;
   margin: 0;
   overflow-wrap: break-word;
   text-align: center;
 }
 header {
-  border-bottom: 1px dashed darkslategray;
+  border-bottom: 1px dashed #002b36;
   padding: 2em;
 }
 section {
@@ -15,9 +15,9 @@ section {
   margin: 1.5em 1em;
 }
 footer {
-  border-top: 1px dashed darkslategray;
+  border-top: 1px dashed #002b36;
 }
 a {
-  color: darkslategray;
+  color: #002b36;
   text-decoration: underline;
 }
