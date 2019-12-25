@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>AWKのリソース | nobi56.github.io</title>
+  <meta name="description" content="AWKを読み書きするにあたってのリソース">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <meta property="og:title" content="AWKのリソース">
+  <meta property="og:description" content="AWKを読み書きするにあたってのリソース">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://nobi56.github.io/experiment/AWK-resources.html">
+  <link rel="stylesheet" href="/assets/article.css"></head>
+</head>
+<body>
+
+<header>
+  <p>AWKのリソース</p>
+  <p>2019/12/25</p>
+</header>
+
+<article>
+
+<section id="001">
+<p>仕様・ソース</p>
+
+<ul>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html">POSIX specification</a></li>
+<li><a href="https://github.com/onetrueawk/awk">one true awk (NAWK?)</a></li>
+<li><a href="https://github.com/ThomasDickey/mawk-snapshots">MAWK</a></li>
+<li><a href="https://github.com/mikebrennan000/mawk-2">MAWK(2beta?)</a></li>
+<li><a href="https://git.savannah.gnu.org/cgit/gawk.git">GAWK</a></li>
+</ul>
+
+<p>実装やそのバージョン、ビルドオプションにより、仕様に準拠する度合や独自拡張の広がりに違い。例えば、組み込み関数のlengthについて、文字列においてのみ使える実装、あるバージョンから配列にも使えるよう拡張された実装とがある等。</p>
+</section>
+
+<section id="002">
+<p>ドキュメント</p>
+
+<ul>
+<li><a href="https://www.gnu.org/software/gawk/manual/">Gawk: Effective AWK Programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/The_AWK_Programming_Language">The AWK Programming Language</a>,
+<a href="https://news.ycombinator.com/item?id=13451454">(HN)</a></li>
+</ul>
+
+<p>GAWKの<a href="https://www.gnu.org/software/gawk/manual/">ドキュメント</a>を読めば大抵の問題は解決(するはず)。実例も豊富で、独自拡張であるところはしっかり区別された記述、マニュアルでありチュートリアル。</p>
+<p><a href="https://en.wikipedia.org/wiki/The_AWK_Programming_Language">The AWK Programming Language</a>はとにかく楽しい、何よりも楽しいドキュメント。</p>
+</section>
+
+<section id="003">
+<p>チートシート</p>
+
+<ul>
+<li><a href="https://catonmat.net/awk-nawk-and-gawk-cheat-sheet">Awk, Nawk and GNU Awk Cheat Sheet</a></li>
+<li><a href="https://ie.u-ryukyu.ac.jp/~e085739/awk.quick.all.html">Awk 基礎文法最速マスター</a></li>
+</ul>
+
+<p>1つ目のサイトは、当該記事の他にも面白い記事(例えばsedの記事)がたっくさん。</p>
+<p>2つ目は、チートシート+α。暗黙の'{ print $0 }'についても記述あり。</p>
+</section>
+
+</article>
+
+<aside>
+
+<section>
+  <p>その他、同じようなつまづきを探す場合等:</p>
+  <p><a href="https://stackoverflow.com/search?q=AWK">https://stackoverflow.com/search?q=AWK</a></p>
+</section>
+
+</aside>
+
+<footer>
+  <p>
+    <a href="/">top</a> &gt;
+    手習い &gt;
+    AWKのリソース
+  </p>
+  <p>&copy; 2018 nobi56.github.io</p>
+</footer>
+
+</body>
+</html>
