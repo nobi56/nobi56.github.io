@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Windows上で | nobi56.github.io</title>
+  <meta name="description" content="Windows上でのあれこれ">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <meta property="og:title" content="Windows上で">
+  <meta property="og:description" content="Windows上でのあれこれ">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://nobi56.github.io/experiment/on-Windows.html">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+
+<header>
+  <p>Windows上で</p>
+  <p>2020/05/23</p>
+</header>
+
+<article>
+
+<section id="001">
+  <p>GnuPGの導入</p>
+
+  <ul>
+  <li>入手先: <a href="https://gnupg.org/download/index.html">GnuPG - Download</a></li>
+  <li>鍵の作成例: <a href="https://gist.github.com/hatsusato/1d5f0267bc9d02bb24c60bd7acc5a59a">gpg のはなし</a></li>
+  <li>公開鍵をGitHubへ: <a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account">Adding a new GPG key to your GitHub account - GitHub Help</a></li>
+  </ul>
+
+  <p>"Simple installer for the current GnuPG"の段、gnupg-w32-X.X.XX_YYYYMMDD.exeをダウンロードしてインストール。インストーラがパス設定も行う。</p>
+
+  <p>作成例に倣い鍵を作成。手元はWindows環境のため、文中の <code>~/.gnupg/</code> は <code>%AppData%\gnupg</code> と読み替える。途中、パスフレーズを入力するダイアログ(おそらくpinentry)の表示が文字化けすることがあった。入力自体に影響はない様子のため、とりあえずそのまま。</p>
+
+  <p>(GPG鍵作成時の名前とメールアドレス、ないし、コミット時のuser.nameとuser.emailが揃っていない場合(メールアドレスを非公開設定している場合など)、<a href="https://help.github.com/en/github/authenticating-to-github/associating-an-email-with-your-gpg-key">Associating an email with your GPG key - GitHub Help</a>の手順に従って紐づけをする必要があるかもしれない(未確認))</p>
+</section>
+
+<section id="002">
+  <p>Git(,BusyBox)の導入とSSHまわりの設定</p>
+
+  <ul>
+  <li>入手先: <a href="https://github.com/git-for-windows/git/releases">Releases · git-for-windows/git · GitHub</a></li>
+  <li>GnuPGと連携(user.signingkeyの設定): <a href="https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work">Git - Signing Your Work</a></li>
+  <li>SSH鍵の作成例: <a href="https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices">What are ssh-keygen best practices?</a></li>
+  <li>.ssh\configの設定例: <a href="https://stackoverflow.com/a/26507643">https://stackoverflow.com/a/26507643</a></li>
+  <li>公開鍵をGitHubへ: <a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account - GitHub Help</a></li>
+  </ul>
+
+  <p>MinGit-X.XX.X-busybox-64-bit.zipをダウンロードし任意の場所に展開。cmd\下のgit.exeを呼び出すラッパーを作成し、パスを通している場所に置く。mingw64\bin\下に同梱されるbusybox.exeも、日常使いの呼び出しの便から同様にする。</p>
+
+  <p>gitコマンドから(又は直接.gitconfigを編集し)、user.signingkeyの他、user.nameやuser.emailなど一通り設定。</p>
+
+  <p>作成例に倣い、Windows同梱のOpenSSHクライアントを利用しssh鍵を作成。手元はWindows環境のため、文中の <code>~/.ssh/</code> は <code>%USERPROFILE%\.ssh</code> と読み替える。</p>
+
+  <p>.ssh\configはリンク先冒頭のたたき台設定を流用。手元に合わせて、鍵のパス指定のみ <code>IdentityFile "C:\Users\..nobi56..\.ssh\private-key-for-github"</code> などと変更する。</p>
+</section>
+
+<section id="003">
+  <p>WinFspの導入</p>
+
+  <ul>
+  <li>入手先: <a href="https://github.com/billziss-gh/winfsp/releases">Releases · billziss-gh/winfsp · GitHub</a></li>
+  <li>ランチャーコマンド実行例: <a href="https://github.com/billziss-gh/winfsp/issues/16#issuecomment-257421255">https://github.com/billziss-gh/winfsp/issues/16#issuecomment-257421255</a></li>
+  </ul>
+
+  <p>winfsp-X.X.XXXXX.msiをダウンロードしインストール。実行例やヘルプメッセージを参考にランチャーコマンド(launchctl-x64.exe)のラッパーを作成し、パスを通している場所に置く。なおサービスとしての詳細は<a href="https://github.com/billziss-gh/winfsp/wiki/WinFsp-Service-Architecture#winfsp-launcher">WinFsp Launcher · WinFsp Service Architecture · billziss-gh/winfsp Wiki · GitHub</a>などへ。</p>
+</section>
+
+<section id="004">
+  <p>inotify-winの導入</p>
+
+  <ul>
+  <li>入手先: <a href="https://github.com/thekid/inotify-win">GitHub - thekid/inotify-win: A port of the inotify-wait tool for Windows</a></li>
+  </ul>
+
+  <p>README.mdに従い、csc.exeを直接呼び出す方法によってビルド。BusyBoxと連携して使う(busybox sh sample.shとするところの、sample.sh内で呼び出す)こともできる。</p>
+
+  <p>何度かシェルスクリプト中から呼ぶうち、"%w"の出力をスラッシュ区切りで欲しくなり、当該出力がフォーマット指定子"%u"から得られるよう記述を追加。</p>
+</section>
+
+<section id="005">
+  <p>Scancode Mapの設定</p>
+
+  <ul>
+  <li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/hid/keyboard-and-mouse-class-drivers#scan-code-mapper-for-keyboards">Scan code mapper for keyboards - Keyboard and mouse class drivers - Windows drivers | Microsoft Docs</a></li>
+  <li><a href="https://www.jaist.ac.jp/~fujieda/scancode.html">Windows Vista/XP/2000/NT4.0のキー配列の変更方法</a></li>
+  </ul>
+
+  <p>CAPS LOCKを左CTRLへ。ヘッダー、エントリ数(1+1)、エントリ(変更対象 変更先)、固定エントリ。</p>
+</section>
+
+</article>
+
+<aside>
+
+<section>
+  <p>取りかかる前に大変だろうと思っていたことが、意外とあっさりできるよう整備されていて助かりました。多くの先人の方々に感謝します。</p>
+</section>
+
+</aside>
+
+<footer>
+  <p>
+    <a href="/">top</a> &gt;
+    <a href="/experiment/">手習い</a> &gt;
+    Windows上で
+  </p>
+  <p>&copy; 2018 nobi56.github.io</p>
+</footer>
+
+</body>
+</html>
