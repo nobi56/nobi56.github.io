@@ -16,7 +16,7 @@
 
 <header>
   <p>Windows上で</p>
-  <p>2020/05/23</p>
+  <p>2020/05/23 (2020/05/25)</p>
 </header>
 
 <article>
@@ -52,7 +52,7 @@
 
   <p>gitコマンドから(又は直接.gitconfigを編集し)、user.signingkeyの他、user.nameやuser.emailなど一通り設定。</p>
 
-  <p>作成例に倣い、Windows同梱のOpenSSHクライアントを利用しssh鍵を作成。手元はWindows環境のため、文中の <code>~/.ssh/</code> は <code>%USERPROFILE%\.ssh</code> と読み替える。</p>
+  <p>作成例に倣い、Windows同梱のOpenSSHクライアントを利用しSSH鍵を作成。手元はWindows環境のため、文中の <code>~/.ssh/</code> は <code>%USERPROFILE%\.ssh</code> と読み替える。</p>
 
   <p>.ssh\configはリンク先冒頭のたたき台設定を流用。手元に合わせて、鍵のパス指定のみ <code>IdentityFile "C:\Users\..nobi56..\.ssh\private-key-for-github"</code> などと変更する。</p>
 </section>
@@ -65,7 +65,7 @@
   <li>ランチャーコマンド実行例: <a href="https://github.com/billziss-gh/winfsp/issues/16#issuecomment-257421255">https://github.com/billziss-gh/winfsp/issues/16#issuecomment-257421255</a></li>
   </ul>
 
-  <p>winfsp-X.X.XXXXX.msiをダウンロードしインストール。実行例やヘルプメッセージを参考にランチャーコマンド(launchctl-x64.exe)のラッパーを作成し、パスを通している場所に置く。なおサービスとしての詳細は<a href="https://github.com/billziss-gh/winfsp/wiki/WinFsp-Service-Architecture#winfsp-launcher">WinFsp Launcher · WinFsp Service Architecture · billziss-gh/winfsp Wiki · GitHub</a>などへ。</p>
+  <p>winfsp-X.X.XXXXX.msiをダウンロードしインストール。実行例やヘルプメッセージを参考にランチャーコマンド(launchctl-x64.exe)のラッパーを作成し、パスを通している場所に置く。サービスとしての詳細は<a href="https://github.com/billziss-gh/winfsp/wiki/WinFsp-Service-Architecture#winfsp-launcher">WinFsp Launcher · WinFsp Service Architecture · billziss-gh/winfsp Wiki · GitHub</a>など。</p>
 </section>
 
 <section id="004">
@@ -77,7 +77,7 @@
 
   <p>README.mdに従い、csc.exeを直接呼び出す方法によってビルド。BusyBoxと連携して使う(busybox sh sample.shとするところの、sample.sh内で呼び出す)こともできる。</p>
 
-  <p>何度かシェルスクリプト中から呼ぶうち、"%w"の出力をスラッシュ区切りで欲しくなり、当該出力がフォーマット指定子"%u"から得られるよう記述を追加。</p>
+  <p>何度かシェルスクリプト中から呼ぶうち、"%w"の出力をスラッシュ区切りで欲しくなり、当該出力がフォーマット指定子"%u"から得られるよう、Runner.cs中Outputメソッドへ記述を追加。</p>
 </section>
 
 <section id="005">
@@ -88,7 +88,7 @@
   <li><a href="https://www.jaist.ac.jp/~fujieda/scancode.html">Windows Vista/XP/2000/NT4.0のキー配列の変更方法</a></li>
   </ul>
 
-  <p>CAPS LOCKを左CTRLへ。ヘッダー、エントリ数(1+1)、エントリ(変更対象 変更先)、固定エントリ。</p>
+  <p>CAPS LOCKを左CTRLへ。ヘッダー、エントリ数(N+1)、エントリ(旧 新)、固定エントリ。</p>
 </section>
 
 </article>
