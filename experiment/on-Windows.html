@@ -78,9 +78,32 @@
   <p>README.mdに従い、csc.exeを直接呼び出す方法によってビルド。BusyBoxと連携して使う(busybox sh sample.shとするところの、sample.sh内で呼び出す)こともできる。</p>
 
   <p>何度かシェルスクリプト中から呼ぶうち、"%w"の出力をスラッシュ区切りで欲しくなり、当該出力がフォーマット指定子"%u"から得られるよう、Runner.cs中Outputメソッドへ記述を追加。</p>
+
+  <p>(なおパスまわりには、<a href="https://docs.microsoft.com/ja-jp/dotnet/standard/io/file-path-formats#unc-paths">UNCパス</a>という仕組みがあるわけで、"%u"では紛らわしいかもしれない。また、そもそもinotify-winはinotify-toolsに沿う移植がなされており、安易にあれこれ追加するのも違うかもしれない。UNCパスを想起させず、inotify-toolsとは別個の独自指定子であることが伝わり、かつ、(できれば)スラッシュ区切りであることが分かるような、そんな文字(列)が思いつくといいけれど。)</p>
 </section>
 
 <section id="005">
+  <p>LÖVE(とLÖVE-Nuklear)の導入</p>
+
+  <ul>
+  <li>入手先: <a href="https://love2d.org/">LÖVE - Free 2D Game Engine</a></li>
+  <li>手順例: <a href="https://love2d.org/wiki/Getting_Started">Getting Started - LOVE</a></li>
+  <li>入手先: <a href="https://github.com/keharriso/love-nuklear">GitHub - keharriso/love-nuklear: Lightweight immediate mode GUI for LÖVE games</a></li>
+  <li>CMakeの実行例: <a href="https://github.com/libjpeg-turbo/libjpeg-turbo/blob/master/BUILDING.md#64-bit-mingw-build-on-unx-including-mac-and-cygwin">64-bit MinGW Build on Un*x (including Mac and Cygwin)</a></li>
+  </ul>
+
+  <p>"64-bit zipped"版をダウンロードし、任意の場所に展開。love.exeやlovec.exeのラッパーを作成しパスを通している場所に置く。</p>
+
+  <p>手順例"Making a Game"項そのままにmain.luaを作り、中段"Running Games"項に従って任意のフォルダに置き(ex001\main.lua)、当該フォルダを引数としてlove.exeを呼び出すことで(love.exe ex001など)、無事Hello, World。</p>
+
+  <p>Nuklearライブラリはバイナリ配布がされていて、まずはそちらを試してみる。も、手元では動かず(ウィンドウがチラッと開いてすぐ閉じる)。後日ダメもとで、Debian(buster)上のMinGWでクロスコンパイルしたnuklear.dllを手元に持ちこみ、同じ手順(love.exe等と同じフォルダ下にdllを置き、レポジトリのexamplesをlove.exeで呼ぶ)を試したところ、なぜか動作する。</p>
+
+  <p>LÖVEはバイナリ配布版(msvcによるビルド)、LÖVE-Nuklearはクロスコンパイル(MinGWによるビルド)、あれこれ探りを入れてバージョンやluaconf.h内の値、LDFLAGS(-static-libgccの有無)なども揃えているとはいえ、それぞれのLuaJITは別々のビルド。何かと齟齬がありそうなものだけれど、とりあえず手元で動作を確認することはできそうなのでそのまま。</p>
+
+  <p>クロスコンパイルにおけるCMakeの使い方は、libjpeg-turboの実行例に倣う。Nuklearにおいては、事前にビルドしたLuaJITの場所に合わせて、LUA_INCLUDE_DIR、LUA_LIBRARY、LUA_LIBRARIESの指定を追加。</p>
+</section>
+
+<section id="006">
   <p>Scancode Mapの設定</p>
 
   <ul>
