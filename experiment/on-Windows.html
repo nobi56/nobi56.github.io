@@ -98,7 +98,7 @@
 
   <p>Nuklearライブラリはバイナリ配布がされていて、まずはそちらを試してみる。も、手元では動かず(ウィンドウがチラッと開いてすぐ閉じる)。後日ダメもとで、Debian(buster)上のMinGWでクロスコンパイルしたnuklear.dllを手元に持ちこみ、同じ手順(love.exe等と同じフォルダ下にdllを置き、レポジトリのexamplesをlove.exeで呼ぶ)を試したところ、なぜか動作。</p>
 
-  <p>LÖVEはバイナリ配布版(msvcによるビルド)、LÖVE-Nuklearはクロスコンパイル(MinGWによるビルド)、あれこれ探りを入れてバージョンやluaconf.h内の値、LDFLAGS(-static-libgccの有無)なども揃えているとはいえ、それぞれのLuaJITは別々のビルド。何かと齟齬がありそうなものだけれど、とりあえず手元で動作を確認することはできそうなのでそのまま。</p>
+  <p>LÖVEはバイナリ配布版(msvcによるビルド)、LÖVE-Nuklearはクロスコンパイル(MinGWによるビルド)、あれこれ探りを入れてバージョンやluaconf.h内の値などを揃えているとはいえ、それぞれのLuaJITは別々のビルド。何かと齟齬がありそうなものだけれど、とりあえず手元で動作を確認することはできそうなのでそのまま。</p>
 
   <p>クロスコンパイルにおけるCMakeの使い方は、libjpeg-turboの実行例に倣う。Nuklearにおいては、事前にビルドしたLuaJITの場所に合わせて、LUA_INCLUDE_DIR、LUA_LIBRARY、LUA_LIBRARIESの指定を追加。</p>
 </section>
