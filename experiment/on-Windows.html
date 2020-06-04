@@ -16,7 +16,7 @@
 
 <header>
   <p>Windows上で</p>
-  <p>2020/05/23 (2020/05/25)</p>
+  <p>2020/05/23 (2020/06/05)</p>
 </header>
 
 <article>
@@ -96,7 +96,7 @@
 
   <p>手順例"Making a Game"項そのままにmain.luaを作り、中段"Running Games"項に従って任意のフォルダに置き(ex001\main.lua)、当該フォルダを引数としてlove.exeを呼び出すことで(love.exe ex001など)、無事Hello, World。</p>
 
-  <p>Nuklearライブラリはバイナリ配布がされていて、まずはそちらを試してみる。も、手元では動かず(ウィンドウがチラッと開いてすぐ閉じる)。後日ダメもとで、Debian(buster)上のMinGWでクロスコンパイルしたnuklear.dllを手元に持ちこみ、同じ手順(love.exe等と同じフォルダ下にdllを置き、レポジトリのexamplesをlove.exeで呼ぶ)を試したところ、なぜか動作する。</p>
+  <p>Nuklearライブラリはバイナリ配布がされていて、まずはそちらを試してみる。も、手元では動かず(ウィンドウがチラッと開いてすぐ閉じる)。後日ダメもとで、Debian(buster)上のMinGWでクロスコンパイルしたnuklear.dllを手元に持ちこみ、同じ手順(love.exe等と同じフォルダ下にdllを置き、レポジトリのexamplesをlove.exeで呼ぶ)を試したところ、なぜか動作。</p>
 
   <p>LÖVEはバイナリ配布版(msvcによるビルド)、LÖVE-Nuklearはクロスコンパイル(MinGWによるビルド)、あれこれ探りを入れてバージョンやluaconf.h内の値、LDFLAGS(-static-libgccの有無)なども揃えているとはいえ、それぞれのLuaJITは別々のビルド。何かと齟齬がありそうなものだけれど、とりあえず手元で動作を確認することはできそうなのでそのまま。</p>
 
