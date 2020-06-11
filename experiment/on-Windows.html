@@ -112,7 +112,7 @@
 
   <p>依存するOpenSSLないしLua/LuaJITやLuaSocketとあわせて、Debian(buster)上のMinGWでクロスコンパイル。OpenSSLやLuaJITは、MinGWでのクロスコンパイルについて、ドキュメント(<a href="https://github.com/openssl/openssl/blob/master/INSTALL.md#cross-compile-prefix">Cross Compile Prefix</a>、<a href="https://luajit.org/install.html#cross">Cross-compiling LuaJIT</a>など)やMakefileに考慮があり、そちらに倣う。LuaやLuaSocketはMinGWの使用につきMakefileに考慮があり、そちらに手を入れる。LuaSecにはそういった仕組みはおそらくないため、Makefile、src/Makefile、src/luasocket/Makefileにその場しのぎの修正(<a href="https://pastebin.com/b2kAjD2f">一応の差分</a>)をする。</p>
 
-  <p>(なおLuaSecに内包されるLuaSocketのコードは、GIT版のLuaSocketのものより以前のもののため、timeoutまわりの記述などが少し異なる。といって新たに追加されたtimeout_meth_gettimeoutが未実装であること以外、あまり違いはなさそう(*)。当該未実装部分も、それがもとで即動作に影響が出るとは思われないことから、とりあえずそのまま。(* 違いの一つに、LUASOCKET_DEBUGが有効にされていれば現行とほぼ同じ扱いになるものがあるが、LuaSecでは当該マクロが以前から有効))</p>
+  <p>(なおLuaSecに内包されるLuaSocketのコードは、Git版のLuaSocketのものより以前のもののため、timeoutまわりの記述などが少し異なる。といって新たに追加されたtimeout_meth_gettimeoutが未実装であること以外、あまり違いはなさそう(*)。当該未実装部分も、それがもとで即動作に影響が出るとは思われないことから、とりあえずそのまま。(* 違いの一つに、LUASOCKET_DEBUGが有効にされていれば現行とほぼ同じ扱いになるものがあるが、LuaSecでは当該マクロが以前から有効))</p>
 </section>
 
 <section id="007">

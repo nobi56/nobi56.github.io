@@ -24,7 +24,6 @@ a { color: #002b36; text-decoration: underline; }
   <span id="Info"></span>
   <input type="button" id="Save" value="save">
   <span id="SaveInfo"></span>
-  <!-- <input type="button" id="Run" value="run"> -->
 </p>
 
 <textarea id="Buffer">参考:
@@ -74,9 +73,6 @@ window.addEventListener("load", () => {
     const T = Date.now() + ".txt";
     E("SaveInfo").innerHTML = "<a href=\"" + B + "\" download=\"" + T + "\" target=\"_blank\">" + T + "</a>";
   }, false);
-
-  //E("Run").addEventListener("click", () => Function("'use strict';\n"+E("Buffer").value)(), false);
-}, false);
 </script>
 
 </body>
